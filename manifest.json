@@ -1,0 +1,31 @@
+{
+  "update_url": "https://clients2.google.com/service/update2/crx",
+  "name": "JSON Resume Exporter",
+  "description": "Export a profile page to JSON Resume",
+  "manifest_version": 3,
+  "icons": {
+    "16": "icon-16.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  },
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+  "permissions": [
+    "declarativeContent",
+    "activeTab",
+    "storage",
+    "downloads",
+    "scripting"
+  ],
+  "version": "3.2.3",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["pdf-lib.min.js"]
+    }
+  ]
+}
